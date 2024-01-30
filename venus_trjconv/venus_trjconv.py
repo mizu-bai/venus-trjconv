@@ -157,15 +157,14 @@ def main():
                     "file do not match."
                 )
 
-        _venus_traj = []
-
         # dt
         if args.dt:
+            _venus_traj = []
             for venus_mol in venus_traj:
                 if np.allclose(venus_mol.time % args.dt, venus_traj[0].time):
                     _venus_traj.append(venus_mol)
 
-        venus_traj = deepcopy(_venus_traj)
+            venus_traj = deepcopy(_venus_traj)
 
         # reorder
         if args.r:
