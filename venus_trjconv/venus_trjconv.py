@@ -41,6 +41,14 @@ def _parse_args():
         default="traj.gro",
     )
 
+    # other options
+    parser.add_argument(
+        "-dt",
+        type=float,
+        help="Only write frame when t MOD dt = first time (ps)",
+        required=False,
+    )
+
     # other options (incompatible with gmx trjconv)
     parser.add_argument(
         "-r",
@@ -148,6 +156,16 @@ def main():
                     "Numbers of atoms in VENUS96 output and structure "
                     "file do not match."
                 )
+
+        _venus_traj = []
+
+        # dt
+        if args.dt:
+            for venus_mol in venus_traj:
+                if np.allclose(venus_mol.time % args.dt, venus_traj[0].time):
+                    _venus_traj.append(venus_mol)
+
+        venus_traj = deepcopy(_venus_traj)
 
         # reorder
         if args.r:
