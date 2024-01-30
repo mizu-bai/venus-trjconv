@@ -36,7 +36,7 @@ In folder `example/`, there is a QCT trajectory of methane molecule.
 - `ch4.dt5`: VENUS96 input file.
 - `ch4.out`: VENUS96 output file, containing 5 trajectories.
 - `template.gro`: Template gro file, `venus2gro.py` will read title, number of atoms, residue numbers, residue names, atom names, atom numbers and box size stored in it.
-- `reorder.txt`: In VENUS96 output, the order of atoms is `H H H H C`, while we want to use order in `template.gro`, which is `C H H H H`. Thus, a reorder file should be used, the first line is `5`, indicating that the 5-th atom (`C`) in VENUS96 output should be the 1-st atom in gro file. If the atom order is same in VENUS96 and `template.gro`, this file and `-r/--reorder` option are not necessary.
+- `reorder.txt`: In VENUS96 output, the order of atoms is `H H H H C`, while we want to use order in `template.gro`, which is `C H H H H`. Thus, a reorder file should be used, the first line is `5`, indicating that the 5-th atom (`C`) in VENUS96 output should be the 1-st atom in gro file. If the atom order is same in VENUS96 and `template.gro`, this file and `-r` option are not necessary.
 
 Convert to `gro`
 
