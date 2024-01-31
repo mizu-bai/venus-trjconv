@@ -16,8 +16,7 @@ Author: mizu-bai
 ## Usage
 
 ```sh
-$ python3 -m venus_trjconv -h
-usage: venus_trjconv [-h] -f F [-s S] [-o O] [-r R]
+usage: venus_trjconv [-h] -f F [-s S] [-o O] [-dt DT] [-r R]
 
 Convert VENUS96 trajectory to other formats.
 
@@ -26,6 +25,7 @@ optional arguments:
   -f F        Trajectory: VENUS96 output
   -s S        Structure: gro xyz
   -o O        Trajectory: gro g96 xyz
+  -dt DT      Only write frame when t MOD dt = first time (ps)
   -r R        Reorder file
 ```
 
