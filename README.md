@@ -16,6 +16,7 @@ Author: mizu-bai
 ## Usage
 
 ```sh
+$ python3 -m venus_trjconv -h
 usage: venus_trjconv [-h] -f F [-s S] [-o O] [-dt DT] [-r R]
 
 Convert VENUS96 trajectory to other formats.
