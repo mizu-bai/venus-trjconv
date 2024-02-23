@@ -51,8 +51,13 @@ def extract_venus_traj(
         # parse masses
         if ANCHOR_MASSES in line:
             cur_line_idx += 2
-            line = contents[cur_line_idx]
-            masses = np.array([float(x) for x in line.split()])
+
+            while len(masses) < num_atoms:
+                line = contents[cur_line_idx]
+                masses += [float(x) for x in line.split()]
+                cur_line_idx += 1
+
+            masses = np.array(masses)
 
         # parse traj
         if ANCHOR_TRAJ in line:
