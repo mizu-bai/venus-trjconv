@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List
 
 import numpy as np
@@ -16,7 +16,7 @@ class GroMol:
     atom_num: List[int]
     position: np.ndarray  # nm
     velocity: np.ndarray  # nm/ps
-    box_vectors: np.ndarray = np.zeros(3)
+    box_vectors: np.ndarray = field(default_factory=lambda: np.zeros(3))
 
     def __str__(self) -> str:
         contents = []

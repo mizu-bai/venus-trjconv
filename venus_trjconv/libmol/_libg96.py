@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Tuple
 
 import numpy as np
@@ -12,7 +12,7 @@ class G96Mol:
     timestep: Tuple[int, float]
     position: np.array  # nm
     velocity: np.array  # nm/ps
-    box_vectors: np.array = np.zeros(3)
+    box_vectors: np.array = field(default_factory=lambda: np.zeros(3))
 
     def __str__(self) -> str:
         contents = []
