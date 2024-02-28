@@ -2,11 +2,13 @@ from dataclasses import dataclass
 from typing import List
 
 import numpy as np
+import re
 
 ANCHOR_NUM_ATOMS = "NUMBER OF ATOMS"
 ANCHOR_MASSES = "MASSES OF ATOMS"
-ANCHOR_TRAJ = "TRAJECTORY NUMBER"
+ANCHOR_TRAJ = "XXXXXXXXXXXXXXXXXXXXXXXX TRAJECTORY NUMBER"
 ANCHOR_CYCLE = "THE CYCLE COUNT IS"
+ANCHOR_Q_P = r"Q\s+P"
 
 
 @dataclass
@@ -78,7 +80,9 @@ def extract_venus_traj(
             if verbose:
                 print(f"Cycle: {cur_cycle} Time: {cur_time:.3f} ps")
 
-            cur_line_idx += 4
+            # cur_line_idx += 4
+            while not re.search(ANCHOR_Q_P, contents[cur_line_idx]):
+                cur_line_idx += 1
 
             position = []
             velocity = []
