@@ -21,8 +21,8 @@ class XYZMol:
         for i in range(self.num_atoms):
             xyz_contents.append(
                 f"{self.atom_name[i]:4s}"
-                f"{self.xyz[i][0]:13.8f}"
-                f"{self.xyz[i][1]:13.8f}"
+                f"{self.xyz[i][0]:15.8f}"
+                f"{self.xyz[i][1]:15.8f}"
                 f"{self.xyz[i][2]:13.8f}"
             )
 
